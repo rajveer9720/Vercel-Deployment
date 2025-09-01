@@ -1,5 +1,3 @@
-// Utility functions to interact with Vercel API for env CRUD
-// Requires VERCEL_TOKEN and VERCEL_PROJECT_ID in .env file
 
 const VERCEL_API_BASE = 'https://api.vercel.com/v10/projects';
 
@@ -22,7 +20,7 @@ export async function addEnvVar(key: string, value: string, target: string[] = [
       'Content-Type': 'application/json',
       Authorization: `Bearer ${token}`,
     },
-    body: JSON.stringify({ key, value, target }),
+    body: JSON.stringify({ key, value, target, type: 'encrypted' }),
   });
   if (!res.ok) throw new Error('Failed to add env var');
   return res.json();
