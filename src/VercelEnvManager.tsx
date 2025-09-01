@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { getEnvVars, addEnvVar, updateEnvVar, deleteEnvVar } from './vercelApi';
 
 interface EnvVar {
